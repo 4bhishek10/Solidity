@@ -1,0 +1,18 @@
+pragma solidity ^0.6.0;
+
+contract StudentMarks{
+
+    struct Student{
+        uint256 marks;
+        string walletAddress;
+    }
+
+    Student[] public student;
+    mapping(string => uint256) public walletToMarks;
+
+
+    function addStudent(string memory _walletAddress, uint256 _marks) public{
+        student.push(Student({marks: _marks, walletAddress: _walletAddress}));
+        walletToMarks[_walletAddress] = _marks;
+    }
+}
